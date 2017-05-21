@@ -1,7 +1,7 @@
 import pylab as plt
 import matplotlib
 import numpy as np
-import plot_utils as pu
+from . import plot_utils as pu
 
 matplotlib.style.use('bmh')
 
@@ -44,7 +44,7 @@ class PrettyPlot:
     def save(self, path):
         pu.create_dirs(path)
         self.fig.savefig(path + ".png")
-        print "Figure saved in %s" % (path)
+        print("Figure saved in %s" % (path))
 
     def plot_DataFrame(self, results):
         n_points, n_labels = results.shape
@@ -76,7 +76,7 @@ class PrettyPlot:
         n_labels = len(y_list)
 
         if labels is None:
-            labels = map(str, np.arange(n_labels))
+            labels = list(map(str, np.arange(n_labels)))
         
         lw = 2.5
 
